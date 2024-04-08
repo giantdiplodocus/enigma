@@ -1,15 +1,29 @@
-# EnigmaRotor
+# Enigma
 
-Java program that simulates the functionality of an Enigma rotor used in the Enigma machine during World War II. 
-The Enigma machine was used for encrypting and decrypting messages, and the rotor played a crucial role in its operation.
+The Enigma machine is a cipher device developed and used in the early- to mid-20th century to protect commercial, diplomatic, and military communication. It was employed extensively by Germany during World War II, in all branches of the German military.
 
-## Description
+This Java program implements an Enigma machine with 3 rotors and a reflector. 
 
-This Java program implements an Enigma rotor with wiring connections at positions. 
-It allows for setting the initial configuration of the rotor and translating characters forward or backward through the rotor.
+| Rotor #   | ABCDEFGHIJKLMNOPQRSTUVWXYZ |
+|-----------|----------------------------|
+| Rotor I   | EKMFLGDQVZNTOWYHXUSPAIBRCJ |
+| Rotor II  | AJDKSIRUXBLHWTMCQGZNPYFVOE |
+| Rotor III | BDFHJLCPRTXVZNYEIWGAKMUSQO |
+| Rotor IV  | ESOVPZJAYQUIRHXLNFTGKDCMWB |
+| Rotor V   | VZBRGITYUPSDNHLXAWMJQOFECK |
+ | Reflector | YRUHQSLDPXNGOKMIEBFZCWVJAT |
+
+Rotor configurations are stored in db. It allows for setting the initial configuration of the rotor and translating characters forward or backward through the rotor.
 Additionally, it provides a REST API endpoint for processing messages with rotor settings.
 
 ## Usage
+### Configuration with Properties File
+The rotor configuration can be specified using a properties file.
+ ```   
+    rotor.left.type=I  
+    rotor.right.type=III   
+    rotor.center.type=II 
+ ```
 
 ### REST API Endpoint
 This program provides a REST API endpoint for processing messages with rotor settings. 
@@ -22,13 +36,7 @@ You can send a POST request to /process with the following JSON payload:
 ```
 #### Swagger UI
 [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
-### Configuration with Properties File
-The rotor configuration can be specified using a properties file.
- ```   
-    rotor.left.type=I  
-    rotor.right.type=III   
-    rotor.center.type=II 
- ```
+
 
 ## React UI
 A Simple react app is available in /enigma-ui
